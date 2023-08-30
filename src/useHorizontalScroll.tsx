@@ -1,8 +1,7 @@
-// src/useHorizontalScroll.ts
 import { useEffect, useRef } from 'react';
 
 export const useHorizontalScroll = () => {
-  const elementRef = useRef(null);
+  const elementRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     const el = elementRef.current;
     if (el) {
@@ -10,7 +9,7 @@ export const useHorizontalScroll = () => {
         if (e.deltaY === 0) return;
         e.preventDefault();
         el.scrollTo({
-          left: el.scrollLeft + e.deltaY * 8, // Adjust multiplier for greater scroll distance
+          left: el.scrollLeft + e.deltaY * 8, 
           behavior: 'smooth'
         });
       };
